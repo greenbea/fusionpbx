@@ -44,8 +44,6 @@
 		json = require "resources.functions.lunajson"
 	end
 
---exits the script if we didn't connect properly
-	assert(dbh:connected());
 --get the domain_uuid
 	if (domain_uuid == nil) then
 		if (domain_name ~= nil) then

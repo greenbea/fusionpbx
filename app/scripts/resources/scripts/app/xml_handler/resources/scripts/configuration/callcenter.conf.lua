@@ -44,9 +44,6 @@
 			local Database = require "resources.functions.database";
 			dbh = Database.new('system');
 
-		--exits the script if we didn't connect properly
-			assert(dbh:connected());
-
 		--get the variables
 			dsn = freeswitch.getGlobalVariable("dsn") or ''
 			dsn_callcenter = freeswitch.getGlobalVariable("dsn_callcenter") or ''

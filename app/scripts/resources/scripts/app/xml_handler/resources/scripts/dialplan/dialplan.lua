@@ -101,9 +101,6 @@
 				json = require "resources.functions.lunajson"
 			end
 
-		--exits the script if we didn't connect properly
-			assert(dbh:connected());
-
 		--get the hostname
 			hostname = trim(api:execute("switchname", ""));
 

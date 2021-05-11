@@ -81,31 +81,29 @@
 			local dbh = Database.new('system');
 
 		--get the extension list
-			if dbh:connected() then
-				dbh:query(sql, function(row)
-					local domain_name = row.domain_name;
-					local call_flow_uuid = row.call_flow_uuid;
-					--local call_flow_name = row.call_flow_name;
-					--local call_flow_extension = row.call_flow_extension;
-					local call_flow_feature_code = row.call_flow_feature_code;
-					--local call_flow_context = row.call_flow_context;
-					local call_flow_status = row.call_flow_status;
-					--local pin_number = row.call_flow_pin_number;
-					local call_flow_label = row.call_flow_label;
-					local call_flow_alternate_label = row.call_flow_alternate_label;
+			dbh:query(sql, function(row)
+				local domain_name = row.domain_name;
+				local call_flow_uuid = row.call_flow_uuid;
+				--local call_flow_name = row.call_flow_name;
+				--local call_flow_extension = row.call_flow_extension;
+				local call_flow_feature_code = row.call_flow_feature_code;
+				--local call_flow_context = row.call_flow_context;
+				local call_flow_status = row.call_flow_status;
+				--local pin_number = row.call_flow_pin_number;
+				local call_flow_label = row.call_flow_label;
+				local call_flow_alternate_label = row.call_flow_alternate_label;
 
-					-- turn the lamp
-						presence_in.turn_lamp( call_flow_status == "false",
-							call_flow_feature_code.."@"..domain_name,
-							call_flow_uuid
-						);
+				-- turn the lamp
+					presence_in.turn_lamp( call_flow_status == "false",
+						call_flow_feature_code.."@"..domain_name,
+						call_flow_uuid
+					);
 
-					if (debug["log"]) then
-						local label = (call_flow_status == "true") and call_flow_label or call_flow_alternate_label
-						log.noticef("label=%s,status=%s,uuid=%s", label, call_flow_status, call_flow_uuid);
-					end
-				end);
-			end
+				if (debug["log"]) then
+					local label = (call_flow_status == "true") and call_flow_label or call_flow_alternate_label
+					log.noticef("label=%s,status=%s,uuid=%s", label, call_flow_status, call_flow_uuid);
+				end
+			end);
 
 		-- release dbh
 			dbh:release()

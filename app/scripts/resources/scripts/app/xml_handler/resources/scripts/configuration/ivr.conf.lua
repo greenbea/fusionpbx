@@ -64,9 +64,6 @@
 		--connect to the database
 			local dbh = Database.new('system');
 
-		--exits the script if we didn't connect properly
-			assert(dbh:connected());
-
 		--get the ivr menu from the database
 			local sql = [[
 				with recursive ivr_menus as (

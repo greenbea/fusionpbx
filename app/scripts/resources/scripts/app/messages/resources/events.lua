@@ -65,9 +65,6 @@
 --connect to the database
 	dbh = Database.new('system');
 
---exits the script if we didn't connect properly
-	assert(dbh:connected());
-
 --set debug
 	debug["sql"] = true;
 

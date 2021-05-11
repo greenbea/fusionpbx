@@ -23,8 +23,6 @@
 	--require "resources.functions.database_handle";
 	--dbh = database_handle('system');
 
---exits the script if we didn't connect properly
-	assert(dbh:connected());
 --get the session variables
 	sounds_dir = session:getVariable("sounds_dir");
 	park_direction = session:getVariable("park_direction");
@@ -61,9 +59,6 @@
 	session:answer();
 
 --database
-	--exits the script if we didn't connect properly
-		assert(dbh:connected());
-
 	--create the table if it doesn't exist
 		--pgsql
 			dbh:test_reactive("SELECT * FROM park",	"",	"CREATE TABLE park (id SERIAL, lot TEXT, domain TEXT, uuid TEXT, CONSTRAINT park_pk PRIMARY KEY(id))");

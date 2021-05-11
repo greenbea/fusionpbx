@@ -52,9 +52,6 @@
 				json = require "resources.functions.lunajson"
 			end
 
-		--exits the script if we didn't connect properly
-			assert(dbh:connected());
-
 		--get the variables
 			vars = trim(api:execute("global_getvar", ""));
 

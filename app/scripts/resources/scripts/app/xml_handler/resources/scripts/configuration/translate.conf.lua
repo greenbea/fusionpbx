@@ -56,9 +56,6 @@
 				json = require "resources.functions.lunajson"
 			end
 
-		--exits the script if we didn't connect properly
-			assert(dbh:connected());
-
 		--start the xml array
 			local xml = {}
 			table.insert(xml, [[<?xml version="1.0" encoding="UTF-8" standalone="no"?>]]);

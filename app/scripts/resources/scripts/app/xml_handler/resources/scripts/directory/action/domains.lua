@@ -28,9 +28,6 @@
 	local Database = require "resources.functions.database";
 	dbh = Database.new('system');
 
---exits the script if we didn't connect properly
-	assert(dbh:connected());
-
 --process when the sip profile is rescanned, sofia is reloaded, or sip redirect
 	local xml = {}
 	table.insert(xml, [[<?xml version="1.0" encoding="UTF-8" standalone="no"?>]]);

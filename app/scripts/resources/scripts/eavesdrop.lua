@@ -45,9 +45,6 @@
 		json = require "resources.functions.lunajson"
 	end
 
---exits the script if we didn't connect properly
-	assert(dbh:connected());
-
 --answer the call
 	if (session:ready()) then
 		session:answer();

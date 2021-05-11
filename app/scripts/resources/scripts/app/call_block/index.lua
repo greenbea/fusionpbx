@@ -88,9 +88,6 @@
 					json = require "resources.functions.lunajson";
 				end
 
-			--exits the script if we didn't connect properly
-				assert(dbh:connected());
-
 			--check to see if the call should be blocked
 				sql = "select * from v_call_block\n";
 				sql = sql .. "where (domain_uuid = :domain_uuid or domain_uuid is null) \n";
