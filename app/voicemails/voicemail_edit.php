@@ -165,7 +165,9 @@
 					$array['voicemails'][0]['voicemail_alternate_greet_id'] = $voicemail_alternate_greet_id != '' ? $voicemail_alternate_greet_id : null;
 					$array['voicemails'][0]['voicemail_mail_to'] = $voicemail_mail_to;
 					$array['voicemails'][0]['voicemail_sms_to'] = $voicemail_sms_to;
-					$array['voicemails'][0]['voicemail_transcription_enabled'] = $voicemail_transcription_enabled;
+					if (permission_exists('voicemail_transcription_enabled') && $_SESSION['voicemail']['transcribe_enabled']['boolean'] == "true") {
+						$array['voicemails'][0]['voicemail_transcription_enabled'] = $voicemail_transcription_enabled;
+					}
 					$array['voicemails'][0]['voicemail_tutorial'] = $voicemail_tutorial;
 					if (permission_exists('voicemail_recording_instructions')) {
 						$array['voicemails'][0]['voicemail_recording_instructions'] = $voicemail_recording_instructions;
